@@ -15,8 +15,8 @@ else
 	# Cross compile on a more capable machine
 	mkdir -p build/arm-linux/release/
 	pushd build/arm-linux/release/
-	cmake -DCMAKE_TOOLCHAIN_FILE=../../../makefiles/cmake/toolchains/arm-linux-gnueabihf.cmake -DCMAKE_BUILD_TYPE=Release ../../..
-	make -j 6
+	cmake -DCMAKE_TOOLCHAIN_FILE=../../../../../toolchain-pi.cmake -DCMAKE_BUILD_TYPE=Release ../../..
+	make mmal_core mmal mmal_util vcos bcm_host
 
 	if [ "$1" != "" ]; then
 	 sudo make install DESTDIR=$1
